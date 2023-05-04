@@ -66,10 +66,10 @@ int is_valid(Node* n){
         else{
           return 0;
         }
+      }
     }
   }
 }
-
 
 List* get_adj_nodes(Node* n){
     List* list=createList();
