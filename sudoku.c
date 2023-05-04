@@ -60,8 +60,8 @@ int is_valid(Node* n){
       }
       numColumna=n->sudo[i][j];
       if(numColumna !=0){
-        if(filas[numColumna]==0){
-          filas[numColumna]=1;
+        if(columnas[numColumna]==0){
+          columnas[numColumna]=1;
         }
         else{
           return 0;
