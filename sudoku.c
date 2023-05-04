@@ -58,7 +58,7 @@ int is_valid(Node* n){
           return 0;
         }
       }
-      numColumna=n->sudo[i][j];
+      numColumna=n->sudo[j][i];
       if(numColumna !=0){
         if(columnas[numColumna]==0){
           columnas[numColumna]=1;
