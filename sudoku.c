@@ -44,7 +44,7 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-  int k,i,j, numColumna, num;
+  int i,j, numColumna, num;
   for(i=0;i<9;i++){
     int filas[10]={0,0,0,0,0,0,0,0,0,};
     int columnas[10]={0,0,0,0,0,0,0,0,0,};
@@ -70,11 +70,22 @@ int is_valid(Node* n){
     }
   }
   // recorrer sub matriz
-  for(k=0;k<9;k++){
-    int k=4,p; 
-    for(p=0;p<9;p++){
-        int i=3*(k/3) + (p/3) ;
-        int j=3*(k%3) + (p%3) ;
+  for(i = 0; i < 9; i += 3){
+    for(j = 0; j < 9; j += 3){
+      int submatriz[10] = {0,0,0,0,0,0,0,0,0,};
+      int k, l;
+      for(k = i; k < i + 3; k++){
+        for(l = j; l < j + 3; l++){
+          num = n->sudo[k][l];
+          if(num != 0){
+            if(submatriz[num] == 0){
+              submatriz[num] = 1;
+            } else {
+              return 0;
+            }
+          }
+        }
+      }
     }
   }
   return 1;
@@ -91,10 +102,8 @@ List* get_adj_nodes(Node* n){
           
           for(num=1;num<=9;num++){
             Node *adyacente=copy(n);  
-            if(is_valid(adyacente)){
-              adyacente->sudo[i][j] = num;
-              pushBack(list, adyacente);
-            }
+            adyacente->sudo[i][j] = num;
+            pushBack(list, adyacente);
           }
           return list;
         }
