@@ -44,7 +44,7 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-  int i,j, numColumna, num;
+  int l,k,i,j, numColumna, num;
   for(i=0;i<9;i++){
     int filas[10]={0,0,0,0,0,0,0,0,0,};
     int columnas[10]={0,0,0,0,0,0,0,0,0,};
@@ -69,6 +69,8 @@ int is_valid(Node* n){
       }
     }
   }
+  // recorrer sub matriz
+  
   return 1;
 }
 
